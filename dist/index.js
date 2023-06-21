@@ -12,11 +12,13 @@ const PORT = 5000;
 app.set('view engine', 'ejs');
 app.set('views', './src/views');
 app.use(body_parser_1.default.urlencoded({ extended: true }));
+app.use(body_parser_1.default.json());
+app.use(express_1.default.static('./src/public'));
 data_source_1.Database.connectDB()
     .then(() => console.log(`DB connected!`))
     .catch((error) => console.log(`DB connect Error : ${error}`));
 app.use("/product", web_routers_1.webRouter);
 app.listen(PORT, "localhost", () => {
-    console.log(`App is running at http://localhost:${PORT}/product/create`);
+    console.log(`App is running at http://localhost:${PORT}/product/list`);
 });
 //# sourceMappingURL=index.js.map

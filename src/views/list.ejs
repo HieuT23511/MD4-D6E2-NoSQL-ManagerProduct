@@ -25,21 +25,67 @@
                             <th scope="col">Price</th>
                             <th scope="col">Producer</th>
                             <th scope="col">Avatar</th>
+                            <th scope="col" class="text-center">Function</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <% products.forEach((product,index)=>{%>
-                        <tr>
+                        <% products.forEach((element,index)=>{%>
+                        <tr id="product-<%= element._id %>">
                             <th scope="row"><%= index+1 %></th>
-                            <td><%= product.name %></td>
-                            <td><%= product.price %></td>
-                            <td><%= product.producer %></td>
-                            <td><%= product.avatar %></td>
+                            <td><%= element.name %></td>
+                            <td><%= element.price %> VND</td>
+                            <td><%= element.producer %></td>
+                            <td><%= element.avatar %></td>
+                            <td class>
+                                <div class="row">
+                                    <div class=" col-2"></div>
+                                    <div class=" col-4 text-center"><a
+                                            href="/product/<%= element._id %>/update"
+                                            class="btn btn-outline-primary w-100 m-0">
+                                            Update </a></div>
+                                    <div class=" col-4 text-center"> <button
+                                            class="btn btn-outline-danger"
+                                            onclick='deleteProduct("<%=element._id%>")'>Delete</button>
+                                    </div>
+                                    <div class=" col-2"></div>
+                                </div>
+                            </td>
                         </tr>
                         <%})%>
-                        <tr> <a href="/product/create" class="btn btn-primary mb-3"> Add new Product </a></tr>  
+                        <tr> <a href="/product/create"
+                                class="btn btn-primary mb-3"> Add new Product
+                            </a></tr>
                     </tbody>
                 </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <% if (currentpage ==1){ %>
+                        <li class="page-item disabled"><a class="page-link"
+                                href>Previous</a></li>
+                        <%} else {%>
+                        <li class="page-item"><a class="page-link"
+                                href="/product/paging/<%= currentpage -1 %>">Previous</a></li>
+                        <% } %>
+
+                        <% for(let i = 1; i <= pages; i++) { %>
+                        <% if (currentpage == i) {%>
+                        <li class="page-item active"><a class="page-link"
+                                href="/product/paging/<%= i %>"><%= i %></a></li>
+                        <% } else { %>
+                        <li class="page-item"><a class="page-link"
+                                href="/product/paging/<%= i %>"><%= i %></a></li>
+                        <% } %>
+                        <% } %>
+
+                        <% if (currentpage == pages){ %>
+                        <li class="page-item disabled"><a class="page-link"
+                                href>Next</a></li>
+                        <%} else{ %>
+                        <li class="page-item"><a class="page-link"
+                                href="<%= currentpage + 1 %>">Next</a></li>
+                        <% } %>
+                    </ul>
+                </nav>
             </div>
         </div>
         <!-- Optional JavaScript -->
@@ -55,5 +101,8 @@
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+        <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="/js/my.js"></script>
     </body>
 </html>

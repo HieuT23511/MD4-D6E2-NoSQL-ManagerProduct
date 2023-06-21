@@ -10,6 +10,8 @@ const PORT = 5000;
 app.set('view engine', 'ejs');
 app.set('views','./src/views');
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+app.use(express.static('./src/public'))
 
 //connect DB
 Database.connectDB()
@@ -21,5 +23,5 @@ app.use("/product",webRouter);
 
 //listen:
 app.listen(PORT,"localhost",()=>{
-    console.log(`App is running at http://localhost:${PORT}/product/create`);    
+    console.log(`App is running at http://localhost:${PORT}/product/list`);    
 })

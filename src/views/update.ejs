@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Create</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container mt-2">
+        <div class="col-10">
+            <form method="post" action="">
+                <div class="form-group">
+                   <h3>Update Product : <%= product.name %></h2>
+                </div>
+                <div class="form-group">
+                  <label for="nameProduct">Name</label>
+                  <input type="text" class="form-control" id="nameProduct" placeholder="Enter name" name="name" value="<%= product.name %>">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="form-control" id="price" placeholder="Enter price" name="price" value="<%= product.price %>">
+                </div>
+                <div class="form-group">
+                    <label for="producer">Producer</label>
+                    <input type="text"  class="form-control" id="producer" placeholder="Enter producer" name="producer" value="<%= product.producer %>">
+                </div>
+                <div class="form-group">
+                    <label for="avatar">Avatar</label>
+                    <input type="text"  class="form-control" id="avatar" name="avatar" value="<%= product.avatar %>">
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+              </form>
+        </div>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
